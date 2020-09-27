@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form name="ChangeForm" action="change.jsp"> 
+<center>
+<h2>Change password</h2>
+	<label>Old Password:</label><input type="password" name="opwd"/><br><br>
+	<label>New Password:</label><input type="password" name="npwd"/><br><br>
+	<label>Confrim Password:</label><input type="password" name="cpwd"/><br><br>
+	<input type="submit" value="change" onClick="check();"/>
+	
+</center>
+</form>
+<script>
+function check(){
+	
+	var np=document.ChangeForm.npwd.value;
+	var cp=document.ChangeForm.cpwd.value;
+	var pass1=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$/;
+
+	if(np!=cp)
+		{
+			alert("current password and confirm password mismatch");
+		}
+	else if(!np.match(pass1))
+		{
+		alert("password should contain aleast 1 number ,1 uppercase ");
+
+		}
+
+
+}
+</script>
+</body>
+</html>

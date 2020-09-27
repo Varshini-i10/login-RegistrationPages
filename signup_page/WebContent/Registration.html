@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form name="registration" action="register">
+	<center>
+		<h2>Registration form</h2>
+		<table>
+		<tr><td>UserId:</td><td><input type="number" name="id"/></td></tr>
+		<tr><td>User name:</td><td><input type="text" name="uname"/></td></tr>
+		<tr><td>Password:</td><td><input type="password" name="pwd"/></td></tr>
+		<tr><td>Date Of Birth:</td><td><input type="date" name="date" placeholder="mm/dd/yyyy"/></td></tr>
+		<tr><td>Gender:</td><td><input type="radio" name="male"/>male  <input type="radio" name="female"/>female</td></tr>
+		<tr><td>State:</td><td><select name="state">
+		<option>Karnataka</option>
+		<option>Andhra Pradesh</option>
+		<option>Tamil Nadhu</option>
+		<option>Kerala</option>
+		<option>Maharashtra</option>
+		</select></td></tr>
+		<tr><td>Contact Number:</td><td><input type="number" name="cont"/></td></tr>
+		<tr><td>Address:</td><td><textarea row="3" col="20"></textarea></td></tr>
+		<tr><td><input type="submit" value="submit" onClick="validate();" /></td><td><input type="reset" /></td></tr>
+		</table>
+	</center>
+</form>
+<script>
+function validate()
+{	
+	var id=document.registration.id.value;
+	var pass=document.registration.pwd.value;
+	var DOB=document.registration.date.value;
+	var num=document.registration.cont.value;
+	var pass1=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+	var dob=DOB.substring(DOB.length-4);
+	var today = new Date();
+	var date =today.getFullYear();
+	if(id.length<4 && id.length>8)
+		alert("id should contain mini of 4 and max of 8 character");
+	else if(!pass.match(pass1))
+		alert("password should contain 1 uppercase , 1 digit and min of 6 characters");
+	 if(num.length!=10)
+		alert("contact number should be exactly 10 digits");
+	if(dob>=date)
+		alert("Enter valid date");
+}
+</script>
+</body>
+</html>
